@@ -3,10 +3,10 @@ package estudandoNo;
 public class Main {
     
     public static void main(String[] args) {
-       No no1 = new No("Primeiro nó"); 
-       No no2 = new No("Segundo nó");
-       No no3 = new No("Terceiro nó");
-       No no4 = new No("Quarto nó");
+       No<String> no1 = new No<String>("Primeiro nó"); 
+       No<String> no2 = new No<String>("Segundo nó");
+       No<String> no3 = new No<String>("Terceiro nó");
+       No<String> no4 = new No<String>("Quarto nó");
 
 
        no1.setProximoNo(no2);

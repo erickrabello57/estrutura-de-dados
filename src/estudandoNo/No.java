@@ -1,28 +1,28 @@
 package estudandoNo;
 
-public class No {
+public class No<T> {
     
-    private String conteudo;
-    private No proximoNo;
+    private T conteudo;
+    private No<T> proximoNo;
 
-    public No(String string){
-        this.conteudo = string;
+    public No(T conteudo){
+        this.conteudo = conteudo;
         this.proximoNo = null;
     }
 
-    public void setConteudo(String s){
-        this.conteudo = s;
+    public void setConteudo(T conteudo){
+        this.conteudo = conteudo;
     }
 
-    public String getConteudo(){
+    public T getConteudo(){
         return this.conteudo;
     }
 
-    public void setProximoNo(No no){
+    public void setProximoNo(No<T> no){
         this.proximoNo = no;
     }
 
-    public No getProximoNo(){
+    public No<T> getProximoNo(){
         return this.proximoNo;
     }
 
