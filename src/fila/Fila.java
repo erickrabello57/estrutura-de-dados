@@ -55,11 +55,9 @@ public class Fila {
     public String toString() {
         No noAuxiliar = referenciaFimFila;
         String retorno = "";
-        retorno += "Início da fila\n";
-        
-
+    
         if(isEmpty()){
-            retorno += "[A fila está vazia]\n ============";
+            retorno += "[A fila está vazia]\n";
             return retorno;
         }else{
             while(noAuxiliar != null){
@@ -68,11 +66,8 @@ public class Fila {
             }
         }
 
-        
         return retorno;
-
     }
-
 
 } 
 
