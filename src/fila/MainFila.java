@@ -8,8 +8,20 @@ public class MainFila {
         System.out.println(fila);
         fila.dequeue();
         fila.enqueue(new No(5));
+        fila.enqueue(new No(10));
+        fila.enqueue(new No(15));
+        fila.enqueue(new No(20));
+        fila.enqueue(new No(25));
         System.out.println(fila);
         fila.dequeue();
+        System.out.println(fila);
+        fila.dequeue();
+        fila.dequeue();
+        fila.dequeue();
+        fila.dequeue();
+        System.out.println(fila);
+        fila.dequeue();
+        System.out.println();
         System.out.println(fila);
         
         

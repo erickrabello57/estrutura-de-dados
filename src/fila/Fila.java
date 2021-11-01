@@ -2,14 +2,14 @@ package fila;
 
 public class Fila {
     
-    private No referenciaInicioFila;
+    private No referenciaFimFila;
 
     public Fila(){
-        referenciaInicioFila = null;
+        referenciaFimFila = null;
     }
 
     public boolean isEmpty(){
-        if(referenciaInicioFila == null){
+        if(referenciaFimFila == null){
             return true;
         }
         return false;
@@ -17,11 +17,11 @@ public class Fila {
 
     public void enqueue(No novoNo){
         if(this.isEmpty()){
-            referenciaInicioFila = novoNo;
+            referenciaFimFila = novoNo;
             novoNo.setProximoNo(null);
         }else{
-            No auxiliar = referenciaInicioFila;
-            referenciaInicioFila = novoNo;
+            No auxiliar = referenciaFimFila;
+            referenciaFimFila = novoNo;
             novoNo.setProximoNo(auxiliar);
             
         }
@@ -29,35 +29,41 @@ public class Fila {
 
     public No dequeue(){
         
-        No dequeued = referenciaInicioFila;
+        No dequeued = referenciaFimFila;
         No noAtual = dequeued;
-        if(!isEmpty()){
-            while(noAtual.getProximoNo().getProximoNo() != null){
-                noAtual = noAtual.getProximoNo();
+        try {
+            if(!isEmpty()){
+                while(noAtual.getProximoNo().getProximoNo() != null){
+                    noAtual = noAtual.getProximoNo();
+                }
+                dequeued = noAtual.getProximoNo();
+                noAtual.setProximoNo(null);
+                
+                return dequeued;
+                
+            }else{
+                return dequeued;
             }
-            dequeued = noAtual.getProximoNo();
-            noAtual.setProximoNo(null);
-            
-            return dequeued;
-            
-        }else{
-            return dequeued;
+        } catch (NullPointerException e) {
+            referenciaFimFila = null;
         }
+        return dequeued;
+        
     }
 
     @Override
     public String toString() {
-        No noAuxiliar = referenciaInicioFila;
-        String retorno = "------------\n";
+        No noAuxiliar = referenciaFimFila;
+        String retorno = "";
         retorno += "Início da fila\n";
-        retorno += "------------\n";
+        
 
         if(isEmpty()){
             retorno += "[A fila está vazia]\n ============";
             return retorno;
         }else{
             while(noAuxiliar != null){
-                System.out.println(noAuxiliar);
+                System.out.print(noAuxiliar + "=>") ; 
                 noAuxiliar = noAuxiliar.getProximoNo();
             }
         }
