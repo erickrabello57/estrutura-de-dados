@@ -1,11 +1,11 @@
 package generics;
 
-public class No {
+public class No<T> {
     
-    private Object objeto;
-    private No ProximoNo;
+    private T objeto;
+    private No<T> proximoNo;
 
-    public No(Object o){
+    public No(T o){
         objeto = o;
     }
 
@@ -13,16 +13,16 @@ public class No {
         return objeto;
     }
 
-    public void setObjeto(Object obj){
+    public void setObjeto(T obj){
         objeto = obj;
     }
 
     public No getProximoNo(){
-        return ProximoNo;
+        return proximoNo;
     }
 
     public void setProximoNo(No proximoNo){
-        ProximoNo = proximoNo;
+        this.proximoNo = proximoNo;
     }
 
     @Override

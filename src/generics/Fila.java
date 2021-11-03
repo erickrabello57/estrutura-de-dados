@@ -1,8 +1,8 @@
 package generics;
 
-public class Fila {
+public class Fila<T> {
     
-    private No referenciaFimFila;
+    private No<T> referenciaFimFila;
 
     public Fila(){
         referenciaFimFila = null;
@@ -15,22 +15,23 @@ public class Fila {
         return false;
     }
 
-    public void enqueue(No novoNo){
+    public void enqueue(T object){
+        No novoNo = new No(object);
         if(this.isEmpty()){
             referenciaFimFila = novoNo;
             novoNo.setProximoNo(null);
         }else{
-            No auxiliar = referenciaFimFila;
+            No<T> auxiliar = referenciaFimFila;
             referenciaFimFila = novoNo;
             novoNo.setProximoNo(auxiliar);
             
         }
     }
 
-    public No dequeue(){
+    public No<T> dequeue(){
         
-        No dequeued = referenciaFimFila;
-        No noAtual = dequeued;
+        No<T> dequeued = referenciaFimFila;
+        No<T> noAtual = dequeued;
         try {
             if(!isEmpty()){
                 while(noAtual.getProximoNo().getProximoNo() != null){
@@ -53,13 +54,14 @@ public class Fila {
 
     @Override
     public String toString() {
-        No noAuxiliar = referenciaFimFila;
+        No<T> noAuxiliar = referenciaFimFila;
         String retorno = "";
     
         if(isEmpty()){
             retorno += "[A fila está vazia]\n";
             return retorno;
         }else{
+            retorno += "Início da fila";
             while(noAuxiliar != null){
                 System.out.print(noAuxiliar + "=>") ; 
                 noAuxiliar = noAuxiliar.getProximoNo();
